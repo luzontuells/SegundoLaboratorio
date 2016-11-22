@@ -16,6 +16,9 @@ public class MainActivity extends Activity implements View.OnClickListener {
     private static final int REQUEST_CODE = 3;
     private String retInfoString;
     private TextView dispInfo_TextView;
+    private Button dispInfo;
+    private Button startActivity;
+    private String refInfoString;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,20 +32,13 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         this.dispInfo_TextView = (TextView) this.findViewById(R.id.textView);
 
-        final Button dispInfo = (Button) findViewById(R.id.button);
-        dispInfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                long a = 0;
-                while (a < 10000000)
-                    a++;
-            }
-        });
+        final Button dispInfo = (Button) findViewById(R.id.disp_button);
+        dispInfo.setOnClickListener(this);
 
-        final Button startActivity = (Button) findViewById(R.id.button2);
+        final Button startActivity = (Button) findViewById(R.id.start_button);
         startActivity.setOnClickListener(this);
 
-        this.startActivityForResult(new Intent(this, SecondActivity.class), REQUEST_CODE);
+        //this.startActivityForResult(new Intent(this, SecondActivity.class), REQUEST_CODE);
 
         //Log.e(MainActivity.TAG, savedInstanceState == null ? "Is null" : "Not null");    // Ejemplo bueno de IF-ELSE en una línea
         //Log.e(MainActivity.TAG, "onCreate()");
@@ -60,16 +56,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
             if (resultCode == RESULT_OK) {
                 // The user picked a contact.
                 // The Intent's data Uri identifies which contact was selected.
-                Toast.makeText(this, "Todo controlado, resultado devuelto", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(this, "Todo controlado, resultado devuelto", Toast.LENGTH_SHORT).show();
                 // Do something with the contact here (bigger example below)
+                if (data != null)
+                    this.refInfoString = data.getStringExtra("returnString");
             }
         }
     }
 
     @Override
     public void onClick(View v) {
-
+        if(v.getId() == R.id.start_button){ //TODO: Pregunta sobre R.
+            Intent actIntent = new Intent(this, SecondActivity.class);
+            this.startActivityForResult(actIntent,REQUEST_CODE);
+        } else if (v.getId() == R.id.disp_button) {
+            dispInfo_TextView.setText(retInfoString);
+        }
     }
+
 
     @Override
     protected void onSaveInstanceState(Bundle outState){

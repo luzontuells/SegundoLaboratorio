@@ -20,16 +20,15 @@ public class SecondActivity extends Activity implements View.OnClickListener {
 
         //this.startActivity(new Intent(this,MainActivity.class));
 
-        final Button okButton = (Button) findViewById(R.id.button3);
+        final Button okButton = (Button) findViewById(R.id.ok_button);
         okButton.setOnClickListener(this);
-
 
         this.infoReturn_Edt = (EditText) this.findViewById(R.id.editText);
     }
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.button3) {
+        if(v.getId() == R.id.ok_button) {
             if(this.infoReturn_Edt != null) {
                 Intent retIntent = new Intent();
                 retIntent.putExtra("returnString", this.infoReturn_Edt.getText().toString());
