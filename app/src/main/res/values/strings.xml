@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">SegundoLaboratorio</string>
+    <string name="app_name">Hello World</string>
+    <string name="main_activity">Main Activity</string>
+    <string name="second_activity">Second Activity</string>
+    <string name="first_button">Display Info</string>
+    <string name="second_button">Start a New Activity</string>
 </resources>
