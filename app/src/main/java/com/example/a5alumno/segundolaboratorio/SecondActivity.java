@@ -4,10 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
-public class SecondActivity extends AppCompatActivity {
+public class SecondActivity extends Activity implements View.OnClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
+    private EditText infoReturn_Edt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,12 +20,25 @@ public class SecondActivity extends AppCompatActivity {
 
         //this.startActivity(new Intent(this,MainActivity.class));
 
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra("returnValue", "string value");
+        final Button okButton = (Button) findViewById(R.id.button3);
+        okButton.setOnClickListener(this);
 
-        this.setResult(Activity.RESULT_OK, resultIntent);
-        this.finish();
+
+        this.infoReturn_Edt = (EditText) this.findViewById(R.id.editText);
     }
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.button3) {
+            if(this.infoReturn_Edt != null) {
+                Intent retIntent = new Intent();
+                retIntent.putExtra("returnString", this.infoReturn_Edt.getText().toString());
+                setResult(Activity.RESULT_OK,retIntent);
+                finish();
+            }
+        }
+    }
+
 
 //    @Override
 //    protected void onStart() {
