@@ -32,7 +32,7 @@ public class SecondActivity extends Activity implements View.OnClickListener {
             if(this.infoReturn_Edt != null) {
                 Intent retIntent = new Intent();
                 retIntent.putExtra("returnString", this.infoReturn_Edt.getText().toString());
-                setResult(Activity.RESULT_OK,retIntent);
+                setResult(Activity.RESULT_OK, retIntent);
                 finish();
             }
         }

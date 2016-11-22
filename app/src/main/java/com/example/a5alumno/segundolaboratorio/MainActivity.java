@@ -14,7 +14,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private static final int REQUEST_CODE = 3;
-    private String retInfoString;
     private TextView dispInfo_TextView;
     private Button dispInfo;
     private Button startActivity;
@@ -51,7 +50,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         super.onActivityResult(requestCode, resultCode, data);
         // Check which request we're responding to
-        if (requestCode == REQUEST_CODE) {
+        if (requestCode == MainActivity.REQUEST_CODE) {
             // Make sure the request was successful
             if (resultCode == RESULT_OK) {
                 // The user picked a contact.
@@ -66,11 +65,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.start_button){ //TODO: Pregunta sobre R.
+        if(v.getId() == R.id.start_button){
             Intent actIntent = new Intent(this, SecondActivity.class);
-            this.startActivityForResult(actIntent,REQUEST_CODE);
+            this.startActivityForResult(actIntent,MainActivity.REQUEST_CODE);
         } else if (v.getId() == R.id.disp_button) {
-            dispInfo_TextView.setText(retInfoString);
+            dispInfo_TextView.setText(refInfoString);
         }
     }
 
