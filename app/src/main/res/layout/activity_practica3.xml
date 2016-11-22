@@ -71,7 +71,7 @@
                 android:hint="Name"
                 android:id="@+id/edit_name"
                 android:layout_below="@id/passport"
-                android:layout_toRightOf="@+id/name"
+                android:layout_toRightOf="@id/name"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="14dp"
@@ -84,7 +84,7 @@
                 android:hint="Surname"
                 android:id="@+id/edit_surname"
                 android:layout_below="@id/edit_name"
-                android:layout_toRightOf="@+id/surname"
+                android:layout_toRightOf="@id/surname"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginRight="14dp"
@@ -104,7 +104,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:id="@+id/ue_citizen"
-                android:layout_toRightOf="@+id/nationality"
+                android:layout_toRightOf="@id/nationality"
                 android:layout_below="@id/edit_surname"/>
 
 
@@ -125,9 +125,9 @@
             app:srcCompat="@android:drawable/ic_menu_gallery"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/apply"
-            android:layout_alignRight="@+id/apply"
-            android:layout_alignEnd="@+id/apply"
+            android:layout_above="@id/apply"
+            android:layout_alignRight="@id/apply"
+            android:layout_alignEnd="@id/apply"
             android:id="@+id/image_button"/>
 
         <Button
@@ -146,7 +146,7 @@
             android:text="Cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/accept"
+            android:layout_alignBottom="@id/accept"
             android:layout_centerHorizontal="true"
             android:id="@+id/cancel" />
 
@@ -154,7 +154,7 @@
             android:text="Apply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/cancel"
+            android:layout_alignTop="@id/cancel"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
             android:layout_marginRight="14dp"

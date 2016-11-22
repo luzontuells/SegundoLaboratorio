@@ -17,7 +17,7 @@
         </activity>
         <activity android:name=".SecondActivity" />
         <activity android:name=".Pruebas" />
-        <activity android:name=".Practica3"></activity>
+        <activity android:name=".Practica3"/>
     </application>
 
 </manifest>
